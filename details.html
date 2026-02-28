@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Không Gian | MiUon House</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        .details-hero {
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 3rem;
+            color: var(--white);
+            position: relative;
+        }
+
+        .details-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        }
+
+        .details-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 100vh;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            object-fit: contain;
+            box-shadow: none;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 1.5rem 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="scrolled">
+        <div class="container">
+            <a href="index.html" class="logo" style="color: var(--primary-color);">MiUon House</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" style="color: var(--text-color);">Trang chủ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section>
+            <div class="container">
+                <a href="index.html" class="back-link">&larr; Quay lại trang chủ</a>
+                <div id="room-content">
+                    <h1 id="room-name" style="font-size: 3rem; margin-bottom: 1rem;">Đang tải...</h1>
+                    <p id="room-description"
+                        style="font-size: 1.1rem; max-width: 800px; color: #555; margin-bottom: 2rem;"></p>
+
+                    <a href="index.html#contact" class="btn">Đặt phòng ngay</a>
+
+                    <div class="gallery-grid" id="room-gallery">
+                        <!-- Images will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 MiUon House. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="Zoomed view">
+            <div class="lightbox-nav">
+                <button class="nav-btn prev">&lsaquo;</button>
+                <button class="nav-btn next">&rsaquo;</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for rooms
+        const roomData = {
+            'mountain-villa': {
+                name: 'Villa Hướng Núi',
+                description: 'Trải nghiệm sự xa hoa giữa lòng thiên nhiên. Villa Hướng Núi được thiết kế với không gian mở, sử dụng vật liệu tự nhiên như đá và gỗ, mang lại cảm giác ấm cúng nhưng không kém phần sang trọng. Từ giường ngủ, bạn có thể ngắm trọn vẹn thung lũng sương mù mỗi sớm mai.',
+                images: [
+                    'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80'
+                ]
+            },
+            'deluxe-garden': {
+                name: 'Deluxe Garden View',
+                description: 'Một không gian yên tĩnh tuyệt đối dành cho những tâm hồn yêu thích hoa cỏ. Phòng Deluxe Garden View mở ra một khu vườn nhỏ riêng tư, nơi bạn có thể nhâm nhi chén trà chiều và lắng nghe tiếng chim chóc líu lo.',
+                images: [
+                    'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1592229505726-ca121723b8ef?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80'
+                ]
+            },
+            'bungalow': {
+                name: 'Phòng Bungalow Gỗ',
+                description: 'Lấy cảm hứng từ nhà sàn truyền thống của người dân tộc, Bungalow Gỗ tại Nature\'s Whisper sử dụng hoàn toàn gỗ tự nhiên cao cấp. Thiết kế tối giản nhưng tinh tế đến từng chi tiết, mang lại trải nghiệm nghỉ dưỡng mộc mạc và chân thực nhất.',
+                images: [
+                    'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1200&q=80',
+                    'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80'
+                ]
+            }
+        };
+
+        // Get room ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomId = urlParams.get('id');
+
+        let currentImageIndex = 0;
+        let roomImages = [];
+
+        if (roomId && roomData[roomId]) {
+            const data = roomData[roomId];
+            roomImages = data.images;
+            document.title = data.name + " | MiUon House";
+            document.getElementById('room-name').textContent = data.name;
+            document.getElementById('room-description').textContent = data.description;
+
+            const gallery = document.getElementById('room-gallery');
+            data.images.forEach((imgUrl, index) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.innerHTML = `<img src="${imgUrl}" alt="${data.name}" onclick="openLightbox(${index})">`;
+                gallery.appendChild(div);
+            });
+        } else {
+            document.getElementById('room-content').innerHTML = '<h2>Không tìm thấy thông tin phòng.</h2><a href="index.html">Quay lại trang chủ</a>';
+        }
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxImage();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateLightboxImage() {
+            lightboxImg.src = roomImages[currentImageIndex];
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % roomImages.length;
+            updateLightboxImage();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + roomImages.length) % roomImages.length;
+            updateLightboxImage();
+        }
+
+        // Event Listeners
+        document.querySelector('.nav-btn.next').addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+        document.querySelector('.nav-btn.prev').addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+        lightbox.addEventListener('click', closeLightbox);
+
+        // Keyboard Support
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    </script>
+</body>
+
+</html>

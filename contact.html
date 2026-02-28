@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ | MiUon House</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        .contact-page {
+            padding: 120px 0 60px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 3rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            width: 50px;
+        }
+
+        .info-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-color);
+        }
+
+        .info-text p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+        }
+
+        .thank-you-msg {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        .thank-you-msg h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .thank-you-msg p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .back-home {
+            margin-bottom: 2rem;
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="scrolled">
+        <div class="container">
+            <a href="index.html" class="logo" style="color: var(--primary-color);">MiUon House</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" style="color: var(--text-color);">Trang chủ</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#contact" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Đặt ngay</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="contact-page">
+            <a href="index.html" class="back-home">&larr; Quay lại trang chủ</a>
+
+            <div class="section-title">
+                <h2>Kết Nối Với Chúng Tôi</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="contact-info-card">
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h3>Số điện thoại</h3>
+                        <p>0987 654 321</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div class="info-text">
+                        <h3>Email</h3>
+                        <p>contact@miuonhouse.vn</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h3>Vị trí</h3>
+                        <p>Thôn Bản Lác, Mai Châu, Hòa Bình</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem; border-top: 1px solid #eee; padding-top: 2rem;">
+                    <a href="index.html#contact" class="btn">Đặt phòng ngay</a>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <!-- Google Maps Embed (Example location for Mai Chau) -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m10!1m3!1d3734.568424268341!2d105.0716613154101!3d20.605555586229206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313401567bc7d257%3A0x8683e35a96866f8e!2zQuG6o24gTMOhYywgTWFpIENow6J1LCBIw7JhIELDrG5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <div class="thank-you-msg">
+                <h2>Cảm Ơn Bạn!</h2>
+                <p>MiUon House xin chân thành cảm ơn bạn đã ghé thăm trang web của chúng tôi. Hy vọng sẽ sớm được chào
+                    đón bạn tại không gian nghỉ dưỡng tuyệt vời tại Mai Châu.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 MiUon House. All Rights Reserved.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Địa chỉ: 11/2A Khe Sanh, phường 10, Đà Lạt</p>
+        </div>
+    </footer>
+</body>
+
+</html>

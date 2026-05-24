@@ -80,54 +80,23 @@ img {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Sliding Banner */
+/* Fixed Banner */
 .side-promo {
     position: fixed;
     top: 50%;
     left: 0;
-    transform: translateY(-50%) translateX(-100%);
+    transform: translateY(-50%);
     z-index: 1001;
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.side-promo:hover {
-    transform: translateY(-50%) translateX(0);
 }
 
 .promo-content {
     width: 250px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 1.5rem;
     border-radius: 0 10px 10px 0;
     box-shadow: 2px 0 15px rgba(0,0,0,0.1);
-}
-
-.promo-icon {
-    position: absolute;
-    top: 50%;
-    right: -40px;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 50px;
-    background: var(--primary-color);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0 10px 10px 0;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.promo-icon i {
-    transition: transform 0.3s ease;
-}
-
-.side-promo:hover .promo-icon i {
-    transform: rotate(180deg);
 }
 
 /* Header & Nav */
@@ -420,17 +389,14 @@ section {
     right: 15px;
 }
 
-.side-connect {
-    position: fixed;
-    top: 100px;
-    right: 20px;
+.footer-social {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 1rem;
-    z-index: 1001;
+    margin-bottom: 2rem;
 }
 
-.side-connect a {
+.footer-social a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -443,24 +409,24 @@ section {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.side-connect a[aria-label="Facebook"] {
+.footer-social a[aria-label="Facebook"] {
     background-color: #1877F2;
 }
 
-.side-connect a[aria-label="Instagram"] {
+.footer-social a[aria-label="Instagram"] {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
-.side-connect a[aria-label="Pinterest"] {
+.footer-social a[aria-label="Pinterest"] {
     background-color: #E60023;
 }
 
-.side-connect a[aria-label="YouTube"] {
+.footer-social a[aria-label="YouTube"] {
     background-color: #FF0000;
 }
 
-.side-connect a:hover {
-    transform: translateX(-5px);
+.footer-social a:hover {
+    transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     filter: brightness(1.1);
 }

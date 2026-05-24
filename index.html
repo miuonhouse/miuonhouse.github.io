@@ -9,18 +9,22 @@
         content="Trải nghiệm kỳ nghỉ tuyệt vời tại MiUon House Homestay - Nơi giao hòa giữa thiên nhiên và sự sang trọng.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
     <header id="header">
         <div class="container">
-            <a href="#" class="logo">MiUon House</a>
+            <a href="#" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="logo.jpg" alt="MiUon House Logo" style="height: 40px; width: auto; object-fit: contain;">
+                <span>MiUon House</span>
+            </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#hero">Trang chủ</a></li>
                     <li><a href="#about">Về chúng tôi</a></li>
                     <li><a href="#featured">Phòng nghỉ</a></li>
+                    <li><a href="#gallery">Thư viện ảnh</a></li>
                     <li><a href="#amenities">Tiện ích</a></li>
                     <li><a href="contact.html">Liên hệ</a></li>
                 </ul>
@@ -28,6 +32,24 @@
             <a href="#contact" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">Đặt ngay</a>
         </div>
     </header>
+
+    <div class="floating-social">
+        <a href="https://miuonhouse.github.io" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://miuonhouse.github.io" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://miuonhouse.github.io" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        <a href="https://miuonhouse.github.io" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <div class="sliding-banner">
+        <div class="banner-content">
+            <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.2rem;">Khuyến Mãi Đặc Biệt</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1rem;">Giảm ngay 15% cho khách hàng lưu trú từ 3 đêm trở lên.</p>
+            <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem; width: 100%; text-align: center; display: block; box-sizing: border-box;">Nhận Ưu Đãi</a>
+        </div>
+        <div class="banner-icon">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
 
     <section id="hero" class="hero">
         <div class="hero-content">
@@ -95,7 +117,29 @@
         </div>
     </section>
 
-    <section id="amenities" style="background-color: #fff;">
+    <section id="gallery" style="background-color: var(--white);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Thư Viện Ảnh</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="gallery-container">
+                <button class="gallery-btn prev-btn" aria-label="Previous image">&#10094;</button>
+                <div class="gallery-wrapper">
+                    <img src="homestay_hero_bg.png" alt="Không gian MiUon House 1" class="gallery-img active">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+                        alt="Không gian MiUon House 2" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80"
+                        alt="Không gian MiUon House 3" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80"
+                        alt="Không gian MiUon House 4" class="gallery-img">
+                </div>
+                <button class="gallery-btn next-btn" aria-label="Next image">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenities">
         <div class="container">
             <div class="section-title">
                 <h2>Dịch Vụ Đi Kèm</h2>
